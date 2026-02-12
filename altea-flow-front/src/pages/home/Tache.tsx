@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Check, X, Clock, PlusCircle, User } from 'lucide-react';
+import { Check, X, PlusCircle, User } from 'lucide-react';
 import "./tache.css";
+
+// --- CONFIGURATION DYNAMIQUE DE L'API ---
+const API_URL = import.meta.env.VITE_API_URL;
 
 type TaskStatus = "todo" | "done" | "canceled" | "create";
 
@@ -13,7 +16,7 @@ interface TaskItemProps {
   assignedTo: string;
 }
 
-const TaskItem = ({ title, dueDate, createdAt, status, priority, assignedTo }: TaskItemProps) => {
+const TaskItem = ({ title, dueDate, status, priority, assignedTo }: TaskItemProps) => {
   // Formatage simple de la date pour l'affichage
   const formatDate = (dateStr: string) => {
     if (!dateStr) return "Pas d'échéance";
@@ -60,7 +63,8 @@ const Tache = ({ style }: { style?: React.CSSProperties }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/tasks")
+    // UTILISATION DE LA VARIABLE API_URL AU LIEU DE LOCALHOST
+    fetch(`${API_URL}/tasks`)
       .then(res => res.json())
       .then(data => {
         setTasks(data);

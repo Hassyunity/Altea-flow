@@ -1,4 +1,3 @@
-import React from 'react';
 import "./Mails.css";
 import "../styles/pages.css";
 import ComingSoon from './ComingSoon';

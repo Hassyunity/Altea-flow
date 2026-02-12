@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Search, Phone, Info, Settings, Bell, UserCircle, LogOut } from 'lucide-react';
 import "./TopBar.css";
 

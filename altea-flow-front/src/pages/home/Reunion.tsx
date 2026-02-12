@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { MapPinHouse, Video } from 'lucide-react';
 import "./reunion.css";
 
+// --- CONFIGURATION DYNAMIQUE DE L'API ---
+const API_URL = import.meta.env.VITE_API_URL;
+
 interface Participant {
   name: string;
   email: string;
@@ -89,9 +92,9 @@ const Reunion = ({ style }: { style?: React.CSSProperties }) => {
   const [reunions, setReunions] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // APPEL À L'API RAILS
+  // APPEL À L'API RAILS (MISE À JOUR AVEC API_URL)
   useEffect(() => {
-    fetch("http://localhost:3000/meetings")
+    fetch(`${API_URL}/meetings`)
       .then(res => res.json())
       .then(data => {
         setReunions(Array.isArray(data) ? data : []);

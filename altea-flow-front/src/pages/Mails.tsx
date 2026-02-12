@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import "./Mails.css";
 import MailPopup from '../components/MailPopup';
 import { 
   Search, Filter, ArrowUpDown, ChevronLeft, 
   ChevronRight, MoreHorizontal, BotMessageSquare 
 } from 'lucide-react';
+
+// --- CONFIGURATION DYNAMIQUE DE L'API ---
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Mails = () => {
   const [activeTab, setActiveTab] = useState('tous');
@@ -30,7 +33,8 @@ const Mails = () => {
     setLoading(true);
     const typeParam = activeTab === 'clients' ? 'client' : activeTab === 'internes' ? 'interne' : 'tous';
     
-    let url = `http://localhost:3000/mail_items?mail_type=${typeParam}`;
+    // UTILISATION DE LA VARIABLE API_URL AU LIEU DE LOCALHOST
+    let url = `${API_URL}/mail_items?mail_type=${typeParam}`;
     if (selectedCategory) {
       url += `&categorie=${selectedCategory}`;
     }

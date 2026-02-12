@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { Eye } from 'lucide-react';
 import "./login.css";
 
-// On modifie l'interface pour que onLogin accepte les données de l'utilisateur
+// Vite chargera automatiquement la valeur depuis :
+// - .env.development (quand tu es sur ton ordi)
+// - .env.production ou les paramètres Netlify (quand tu es en ligne)
+const API_URL = import.meta.env.VITE_API_URL;
+
 interface LoginProps {
   onLogin: (userData: any) => void;
 }
@@ -10,15 +14,15 @@ interface LoginProps {
 const Login = ({ onLogin }: LoginProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // Pour l'état du bouton
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      // APPEL À TON API RAILS
-      const response = await fetch("http://localhost:3000/login", {
+      // On utilise l'URL dynamique récupérée par Vite
+      const response = await fetch(`${API_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,15 +36,12 @@ const Login = ({ onLogin }: LoginProps) => {
       const data = await response.json();
 
       if (response.ok) {
-        // SUCCÈS : On passe les infos de l'utilisateur au parent (main.tsx)
         onLogin(data.user);
       } else {
-        // ERREUR : (Email ou MDP incorrect)
         alert(data.error || "Erreur lors de la connexion");
       }
     } catch (error) {
-      // ERREUR RÉSEAU : (Le serveur Rails est éteint par exemple)
-      alert("Impossible de contacter le serveur. Vérifiez que Le serveurest lancé.");
+      alert("Impossible de contacter le serveur. Vérifiez qu'il est bien lancé.");
     } finally {
       setIsLoading(false);
     }
