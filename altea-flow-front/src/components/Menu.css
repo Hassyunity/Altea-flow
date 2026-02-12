@@ -1,0 +1,77 @@
+.side-menu {
+  width: 70px; /* Légèrement élargi pour laisser respirer le fond blanc */
+  background-color: #5E043B;
+  height: calc(100vh - 50px); 
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0px;
+  color: white;
+  align-items: center;
+  box-sizing: border-box; 
+}
+
+.menu-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+  align-items: center;
+  width: 100%;
+  /* Permet de faire défiler si la liste est trop longue */
+  overflow-y: auto; 
+  flex: 1; 
+  /* Cache la barre de défilement sur Chrome/Safari/Firefox */
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.menu-icons::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Wrapper de l'icône --- */
+.menu-item-wrapper {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px; /* Coins arrondis modernes */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: rgba(255, 255, 255, 0.7); /* Couleur icône non-active */
+}
+
+.menu-item-wrapper:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- État Actif --- */
+.menu-item-wrapper.active {
+  background-color: white; /* Fond blanc */
+  color: #5E043B; /* Icône devient bordeaux */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.menu-item-wrapper.active svg {
+  opacity: 1;
+}
+
+.separator {
+  width: 30px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 10px 0;
+}
+
+.menu-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}

@@ -1,0 +1,169 @@
+/* Import de la police moderne */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;800&display=swap');
+
+.topbar {
+  height: 65px; /* Augmenté légèrement pour accueillir le slogan avec élégance */
+  background-color: #5E043B;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+}
+
+/* --- Bloc Logo & Slogan --- */
+.logo-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+}
+
+.logo span {
+  font-weight: 300;
+  color: #000000; /* Le "Flow" en noir pour le contraste */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.slogan {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: 3.5px; /* Espacement large pour le côté philosophique */
+  color: rgba(255, 255, 255, 0.6); /* Blanc estompé pour la discrétion */
+  text-transform: uppercase;
+  margin-top: 5px;
+  transition: color 0.3s ease;
+}
+
+.logo-group:hover .slogan {
+  color: rgba(255, 255, 255, 1); /* S'illumine au survol */
+}
+
+/* --- Barre de Recherche --- */
+.search-container {
+  position: relative;
+  width: 400px;
+  margin: 0 20px;
+}
+
+.search-container input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 8px 15px;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  color: white;
+}
+
+/* --- Actions & Profil --- */
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Ajusté pour éviter un trop grand vide */
+}
+
+.action-icons {
+  display: flex;
+  gap: 25px;
+  padding: 0 25px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.action-icons svg {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.action-icons svg:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.user-profile:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Dropdown Déconnexion --- */
+.user-profile-container {
+  position: relative;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  padding: 5px;
+  z-index: 1000;
+}
+
+.logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: none;
+  border: none;
+  color: #5E043B; /* Ta couleur bordeaux */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background: #f5f5f5;
+  color: #ff4444; /* Rouge au survol pour la déconnexion */
+}

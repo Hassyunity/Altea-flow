@@ -1,0 +1,179 @@
+/* --- Variables & Reset --- */
+:root {
+  --primary-color: #5E043B;
+  --bg-gradient: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+  --card-bg: rgba(207, 207, 207, 0.8);
+  --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-subtle {
+  0% { transform: scale(1); box-shadow: 0 10px 25px rgba(94, 4, 59, 0.3); }
+  50% { transform: scale(1.05); box-shadow: 0 15px 35px rgba(94, 4, 59, 0.5); }
+  100% { transform: scale(1); box-shadow: 0 10px 25px rgba(94, 4, 59, 0.3); }
+}
+
+/* --- Layout Structure --- */
+.app-container {
+  display: flex;
+  height: 100vh;
+  background-color: var(--primary-color);
+  overflow: hidden;
+}
+
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-area {
+  flex: 1;
+  background: var(--bg-gradient);
+  border-top-left-radius: 35px;
+  position: relative;
+  padding: 30px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* --- Header & Pagination --- */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100% !important; 
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.header-left, .header-center, .header-right {
+  flex: 1; 
+}
+
+.header-center { display: flex; justify-content: center; }
+.header-right { display: flex; justify-content: flex-end; }
+
+.current-date {
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Bouton Personnaliser (Style Minimaliste) */
+.btn-personalize-minimal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid #555;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 14px;
+  transition: var(--transition-smooth);
+}
+
+.btn-personalize-minimal:hover {
+  transform: translateY(-2px);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Pagination */
+.pagination-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 13px;
+  color: #555;
+}
+
+.pagi-btn-top {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  color: #555;
+  font-weight: 500;
+}
+
+.pagi-numbers { display: flex; gap: 5px; }
+.pagi-num { padding: 2px 8px; border-radius: 4px; cursor: pointer; }
+.pagi-num.active { background: #ccc; color: white; }
+
+/* --- Chat FAB & Scrollbar --- */
+.chat-fab {
+  position: fixed;
+  bottom: 35px;
+  right: 35px;
+  color: var(--primary-color);
+  background: white;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 50;
+  animation: pulse-subtle 3s infinite ease-in-out;
+  transition: var(--transition-smooth);
+}
+
+.chat-fab:hover {
+  transform: scale(1.2) rotate(-10deg);
+  background: var(--primary-color);
+  color: white;
+}
+
+.content-area::-webkit-scrollbar { width: 8px; }
+.content-area::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+/* --- Sidebar de Personnalisation --- */
+.personalize-sidebar {
+  position: fixed;
+  top: 0;
+  right: -450px; 
+  width: 400px;
+  height: 100vh;
+  background: white;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+  z-index: 2000;
+  transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.personalize-sidebar.open { right: 0; }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1999;
+}
+
+.sidebar-header {
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-content {
+  padding: 25px;
+  flex: 1;
+  overflow-y: auto;
+}

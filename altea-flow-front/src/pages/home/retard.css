@@ -1,0 +1,75 @@
+.retard-column-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+/* La carte avec le relief identique aux autres sections */
+.retard-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #D1D1D1; /* Gris de base */
+  border: 1px solid #BDBDBD;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.retard-card-row:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Alignement des infos */
+.retard-info-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.retard-date-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.warning-icon {
+  color: #f1c40f; /* Jaune alerte */
+}
+
+.retard-date-text {
+  font-size: 11px;
+  color: #c0392b; /* Rouge discret pour la date dépassée */
+  font-weight: 700;
+}
+
+.retard-main-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Badge Urgent (Style minimaliste moderne) */
+.badge-urgent {
+  padding: 4px 12px;
+  background: #fdfdfd;
+  border: 1px solid #c0392b;
+  border-radius: 6px;
+  color: #333;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Optionnel : Une légère lueur rouge au survol de la carte en retard */
+.retard-card-row:hover .badge-urgent {
+  background: #c0392b;
+  color: white;
+}

@@ -1,0 +1,143 @@
+/* --- Conteneur Global --- */
+.tache-column-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.task-item-container {
+  position: relative;
+  width: 100%;
+}
+
+/* --- Carte de Tâche --- */
+.task-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #D1D1D1;
+  border: 1px solid #BDBDBD;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s;
+}
+
+/* Effet au survol de la carte */
+.task-card-row:hover {
+  background: #FFFFFF;
+}
+
+/* --- LE CERCLE UNIQUE --- */
+.status-circle-single {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #333; /* Bordure par défaut pour 'todo' */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  transition: all 0.2s;
+}
+
+/* Style si FAIT (Noir avec Check blanc) */
+.status-circle-single.done {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+/* Style si ANNULÉ (Rouge avec X blanc) */
+.status-circle-single.canceled {
+  background: #B00020;
+  border-color: #B00020;
+  color: #fff;
+}
+
+/* --- STYLES DE TEXTE ET ÉTATS --- */
+.status-done .task-main-title {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Nouveau statut "Create" (Bleu ou vert clair) */
+.status-create { border-left: 4px solid #3498db; }
+.status-circle-single.create { border: 2px solid #3498db; color: #3498db; }
+
+/* Alignement des métadonnées à droite */
+.task-metadata-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.assigned-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #666;
+  background: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.icon-gray { color: #888; }
+
+.status-canceled {
+  opacity: 0.5;
+  filter: grayscale(0.5);
+}
+
+/* --- TAGS DE PRIORITÉ (Bordures de couleurs) --- */
+.priority-tag-static {
+  padding: 8px 22px;
+  border-radius: 12px;
+  background: #D8D8D8;
+  font-weight: 700;
+  font-size: 13px;
+  color: #333;
+  text-align: center;
+  border: 1.8px solid #A0A0A0; /* Gris par défaut */
+}
+
+.priority-tag-static.eleve {
+  border-color: #B00020; /* Rouge */
+}
+
+.priority-tag-static.moyen {
+  border-color: #5cb85c; /* Vert */
+}
+
+.priority-tag-static.faible {
+  border-color: #808080; /* Gris */
+}
+
+/* --- TYPOGRAPHIE ET ALIGNEMENT --- */
+.task-info-left {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.task-date-text {
+  font-size: 11px;
+  color: #555;
+  margin-left: 34px; /* Alignement avec le titre sous le cercle */
+  font-weight: 500;
+}
+
+.task-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.task-main-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}

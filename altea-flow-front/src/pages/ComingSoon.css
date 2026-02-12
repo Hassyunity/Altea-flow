@@ -1,0 +1,75 @@
+.coming-soon-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.coming-soon-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-radius: 30px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  animation: fadeInUp 0.8s ease-out; /* Utilise l'animation de pages.css */
+}
+
+.icon-pulse {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.coming-soon-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+.coming-soon-text {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Barre de progression décorative */
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  width: 65%; /* Progression simulée */
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(94, 4, 59, 0.3);
+}

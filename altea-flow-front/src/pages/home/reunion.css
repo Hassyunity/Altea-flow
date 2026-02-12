@@ -1,0 +1,157 @@
+/* --- Conteneur principal --- */
+.reunion-column-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.Visio-link {
+  color: #4da3ff;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* --- Gestion de l'empilement (Z-INDEX) --- */
+.reunion-item-container {
+  position: relative;
+  width: 100%;
+  z-index: 1; /* Niveau de base */
+}
+
+/* Quand on survole la ligne, elle passe devant toutes les autres cartes */
+.reunion-item-container:hover {
+  z-index: 1000;
+}
+
+.reunion-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #D1D1D1;
+  border: 1px solid #BDBDBD;
+  border-radius: 12px;
+  padding: 15px 20px;
+  min-height: 80px;
+  position: relative;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.reunion-card-row:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- TOOLTIP GAUCHE (LIEU) --- */
+.reunion-icon-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.location-tooltip {
+  position: absolute;
+  top: 105%; /* S'affiche juste en dessous */
+  left: 0;
+  background: #5E043B;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  width: max-content;
+  min-width: 150px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  
+  /* Masqué par défaut */
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+  z-index: 1001;
+  pointer-events: auto; /* Permet de cliquer sur le lien */
+}
+
+/* Pont invisible pour que la souris ne "perde" pas le focus en allant vers le lien */
+.location-tooltip::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 25px;
+}
+
+.reunion-icon-box:hover .location-tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+.location-label {
+  margin: 0;
+  font-size: 13px;
+}
+
+.vizio-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #4da3ff;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.vizio-link:hover {
+  color: #ffffff;
+}
+
+/* --- TOOLTIP DROITE (PARTICIPANTS) --- */
+.reunion-participants-wrapper {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.reunion-participants-text {
+  font-size: 10px;
+  font-weight: 700;
+  color: #666;
+}
+
+.participants-tooltip {
+  position: absolute;
+  top: 100%; /* S'affiche AU-DESSUS de la ligne */
+  right: 0;
+  background: #5E043B;
+  color: black;
+  padding: 12px;
+  border-radius: 10px;
+  width: 200px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  z-index: 1001;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* --- STYLES TEXTES --- */
+.reunion-left { display: flex; align-items: center; gap: 12px; }
+.reunion-time { font-size: 11px; font-weight: 700; color: #444; width: 70px; }
+.reunion-center { flex-grow: 1; padding-left: 10px; }
+.reunion-main-title { font-size: 15px; font-weight: 600; color: #1a1a1a; }
+
+.participants-list { list-style: none; padding: 0; margin: 0; }
+.participant-item { display: flex; flex-direction: column; padding: 5px 0; border-bottom: 1px solid #444; }
+.participant-item:last-child { border-bottom: none; }
+.participant-item strong { font-size: 12px; color: #fff; }
+.participant-item span { font-size: 10px; color: #bbb; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,188 @@
+.column-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- L'onglet de Titre (Celui avec la bordure bordeaux) --- */
+.column-title-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #E8E8E8; /* Gris identique au fond de la colonne */
+  border-top: 1.5px solid #5E043B; /* La ligne bordeaux fine du dessus */
+  border-left: 1px solid #D1D1D1;
+  border-right: 1px solid #D1D1D1;
+  width: fit-content;
+  padding: 6px 20px;
+  border-radius: 12px 12px 0 0;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+  position: relative;
+  z-index: 2;
+  bottom: -1px; /* Fusionne avec le conteneur du bas */
+}
+
+/* --- Le Conteneur Gris Principal --- */
+.column-content-box {
+  background: #E8E8E8; 
+  border: 1px solid #D1D1D1;
+  border-radius: 0 15px 15px 15px; 
+  padding: 15px;
+  
+  /* FIXE LA HAUTEUR : 100vh (écran) - header (environ 150px) */
+  height: calc(90vh - 160px); 
+  
+  /* SCROLL INTERNE */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  
+  /* Optionnel : pour cacher la scrollbar sur Chrome/Safari tout en gardant le scroll */
+  scrollbar-width: thin; /* Firefox */
+}
+
+/* Personnalisation de la barre de défilement (Scrollbar) pour que ce soit plus joli */
+.column-content-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.column-content-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.column-content-box::-webkit-scrollbar-thumb {
+  background: #C0C0C0;
+  border-radius: 10px;
+}
+
+.column-content-box::-webkit-scrollbar-thumb:hover {
+  background: #5E043B; /* Rappel de ta couleur bordeaux au survol */
+}
+
+/* --- Dashboard Grid --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+  /* On s'assure que la grille ne dépasse pas non plus */
+  overflow: hidden;
+}
+
+/* --- Les Cartes Internes (Celles qui ont l'ombre) --- */
+.item-card {
+  background: red; /* Gris légèrement plus foncé */
+  border: 0.5px solid #C0C0C0;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* L'ombre portée qui crée le relief dans ton image */
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+/* Effet Hover : Elle devient blanche comme dans ton image */
+.item-card:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 4px 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Styles Internes des Cartes --- */
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.time-text {
+  font-size: 10px;
+  color: #555;
+  font-weight: 700;
+  width: 70px;
+}
+
+.title-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+}
+
+.card-bottom {
+  text-align: right;
+  font-size: 10px;
+  color: #777;
+}
+
+/* --- Style spécifique pour les Tasks --- */
+.card-main-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-circle {
+  border: 1.5px solid #333;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.btn-elevé {
+  background: #E8E8E8;
+  border: 1px solid #B0B0B0;
+  padding: 4px 12px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #444;
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.05);
+}
+
+.item-card:hover .btn-elevé {
+  border-color: #5E043B;
+  color: #5E043B;
+}
+
+.pagi-btn-top {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #333;
+  transition: opacity 0.2s;
+}
+
+.pagi-btn-top.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pagi-num {
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.pagi-num.active {
+  background: #5E043B; /* Ta couleur bordeaux */
+  color: white;
+}
+
+/* On enlève le max-height qui bloquait l'affichage */
+.dashboard-grid {
+  max-height: none; 
+}

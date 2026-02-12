@@ -1,0 +1,376 @@
+
+.altea-login-container {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-color: #640D47;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- CARTE PRINCIPALE --- */
+.altea-main-card {
+  width: 90%;
+  max-width: 1050px;
+  height: 90vh;
+  background: #D9D9D9; /* Fond blanc pur pour la clarté */
+  border-radius: 40px;
+  display: flex;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+/* --- SECTION GAUCHE --- */
+.altea-form-side {
+  width: 45%;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.altea-form-inner {
+  width: 100%;
+}
+
+/* Conteneur pour aligner les deux blocs */
+.altea-brand-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Bloc Altea (Pourpre) */
+.altea-brand-name {
+  background: black;
+  color: #FFFFFF;
+  padding: 8px 20px;
+  border-radius: 20px 0 0 0px;
+  font-weight: 800;
+  font-size: 18px;
+  width: fit-content;
+  box-shadow: 0 4px 10px rgba(100, 13, 71, 0.2);
+  z-index: 2;
+}
+
+/* Bloc - Flow (Blanc) */
+.altea-brand-subtitle {
+  background: #FFFFFF;
+  color: black;
+  padding: 8px 20px;
+  border-radius: 0px 20px 0px 0px;
+  font-weight: 400;
+  font-size: 18px;
+  margin-left: -15px; /* Chevauchement optionnel pour coller les deux bulles */
+  padding-left: 25px; /* Compense le chevauchement pour le texte */
+  border: 1px solid #E5E2D8;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.altea-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: #1a1a1a;
+}
+
+.altea-subtitle {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+/* --- FORMULAIRE --- */
+.altea-field {
+  margin-bottom: 22px;
+}
+
+.altea-field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #bbb;
+  margin-left: 15px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.altea-field input {
+  width: 100%;
+  padding: 16px 22px;
+  border-radius: 25px;
+  border: 1px solid #EAEAEA;
+  background: #F9F9FB; /* Gris très léger pour les inputs */
+  outline: none;
+  font-size: 14px;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.altea-field input:focus {
+  border-color: #640D47;
+  background: #FFFFFF;
+}
+
+.altea-password-box {
+  position: relative;
+}
+
+.altea-eye {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  cursor: pointer;
+}
+
+/* BOUTON SUBMIT AUX COULEURS DU SAAS */
+.altea-submit-btn {
+  width: 100%;
+  padding: 18px;
+  background: #640D47 ; /* Pourpre de ton menu latéral */
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.altea-submit-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.altea-footer-row {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.altea-footer-row a {
+  color: #640D47; /* Liens assortis au logo */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.altea-terms {
+  color: #1a1a1a !important;
+  opacity: 0.6;
+}
+
+/* --- SECTION DROITE --- */
+.altea-visual-side {
+  flex: 1;
+  background: rgba(93, 7, 86, 0.2); /* Gris doux rappelant tes cartes intérieures */
+  margin: 15px;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.altea-widget-calendar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 24px;
+  width: 280px;
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.cal-date-header {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.cal-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #999;
+  margin-bottom: 15px;
+}
+
+.cal-days {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.cal-days span {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cal-active {
+  background: #640D47; /* Jour actuel en pourpre */
+  color: white;
+  border-radius: 50%;
+}
+
+.altea-abstract-circle {
+  width: 200px; height: 200px; border-radius: 50%;
+  background: rgba(100, 13, 71, 0.5); /* Cercles discrets en pourpre */
+  position: absolute; top: -50px; right: -50px;
+}
+
+.altea-abstract-pill {
+  width: 120px; height: 300px; border-radius: 60px;
+  background: rgba(100, 13, 71, 0.3);
+  position: absolute; bottom: -80px; left: -30px;
+  transform: rotate(-20deg);
+}
+
+/* --- AJOUT DU STYLE POUR LE WIDGET MEETING --- */
+.altea-widget-meeting {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  background: white;
+  padding: 18px;
+  border-radius: 20px;
+  width: 220px;
+  z-index: 12;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* --- CONTENU DU WIDGET MEETING --- */
+/* --- WIDGET MEETING STYLE POST-IT --- */
+.altea-widget-meeting {
+  position: absolute;
+  top: 15%;
+  left: 12%;
+  background: #ffffff; /* Tu peux mettre #FFF9C4 si tu veux un jaune post-it classique */
+  padding: 20px;
+  width: 220px;
+  z-index: 12;
+  
+  /* L'inclinaison de 10 degrés à gauche */
+  transform: rotate(-10deg);
+  
+  /* Effet de papier collé (Ombre plus prononcée en bas à droite) */
+  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.15);
+  
+  /* Simulation de la bordure supérieure du post-it */
+  border-top: 15px solid rgba(0, 0, 0, 0.03); 
+  
+  /* On garde un bord légèrement arrondi mais pas trop pour l'effet papier */
+  border-radius: 2px; 
+  transition: transform 0.3s ease;
+}
+
+/* Petit effet interactif : se redresse un peu au survol */
+.altea-widget-meeting:hover {
+  transform: rotate(-5deg) scale(1.02);
+}
+
+/* On garde ton contenu interne intact */
+/* --- WIDGET MEETING STYLE POST-IT AVEC SCOTCH --- */
+.altea-widget-meeting {
+  position: absolute;
+  top: 15%;
+  left: 12%;
+  background: #ffffff;
+  padding: 20px;
+  width: 220px;
+  z-index: 12;
+  
+  /* Inclinaison demandée */
+  transform: rotate(-10deg);
+  
+  /* Ombre de papier */
+  box-shadow: -5px 10px 20px rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+  position: relative; /* Important pour placer le scotch */
+}
+
+/* --- LE MORCEAU DE SCOTCH --- */
+/* --- LE MORCEAU DE SCOTCH --- */
+.altea-widget-meeting::before {
+  content: "";
+  position: absolute;
+  
+  /* On le remonte de 10px pile au-dessus du bord */
+  top: -30px; 
+  left: 50%;
+  
+  /* On garde l'alignement et la petite rotation réaliste */
+  transform: translateX(-50%) rotate(2deg); 
+  
+  /* Largeur et Hauteur ajustées */
+  width: 80px;
+  height: 30px; 
+  
+  /* Jaune intense comme sur ton image (0.9 d'opacité) */
+  background: rgba(255, 235, 59, 0.7); 
+  
+  /* Détails visuels */
+  backdrop-filter: blur(1px);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  
+  z-index: 13;
+}
+
+/* On garde le reste identique */
+.meeting-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  margin-top: 5px; /* Laisse un peu de place pour le scotch visuellement */
+}
+
+.meeting-info h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+}
+
+.meeting-info p {
+  margin: 3px 0 0 0;
+  font-size: 11px;
+  color: #999;
+}
+
+.meeting-dot {
+  width: 8px;
+  height: 8px;
+  background: #FFD233;
+  border-radius: 50%;
+}
+
+.meeting-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.meeting-avatars img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-left: -8px;
+  object-fit: cover;
+}

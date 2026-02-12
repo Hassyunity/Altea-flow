@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: altea_api_development
+  username: postgres
+  password: postgres
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: altea_api_test
+  username: postgres
+  password: postgres
+  host: localhost
+  port: 5432
+
+production:
+  <<: *default
+  # Ici, on ne touche à rien, c'est l'URL Supabase qui sera utilisée sur ton serveur (Render, etc.)
+  url: <%= ENV['DATABASE_URL'] %>
+  cable:
+    url: <%= ENV["DATABASE_URL"] %>
+    migrations_paths: db/cable_migrate
