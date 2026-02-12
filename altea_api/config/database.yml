@@ -23,9 +23,12 @@ production:
   primary:
     adapter: postgresql
     url: <%= ENV["DATABASE_URL"] %>
+    prepared_statements: false
   cable:
     adapter: postgresql
     url: <%= ENV["DATABASE_URL"] %>
+    prepared_statements: false
   cache:
     adapter: postgresql
     url: <%= ENV["DATABASE_URL"] %>
+    prepared_statements: false
