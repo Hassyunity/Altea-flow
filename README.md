@@ -64,7 +64,7 @@ L'application est en production et accessible pour démonstration.
 
 > Passer d'une boîte mail saturée à un assistant stratégique.
 
-Altea Flow réduit la charge mentale en automatisant le tri et en facilitant la planification humaine.
+Altea Flow réduit la charge mentale en automatisant le tri et en facilitant la planification humaine en creant des ections précis et inteligent.
 
 ---
 
